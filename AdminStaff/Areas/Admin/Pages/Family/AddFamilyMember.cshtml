@@ -1,0 +1,60 @@
+﻿@page
+@model AdminStaff.Areas.Admin.Pages.Family.AddFamilyMemberModel
+@{
+}
+<h1>Add</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input type="hidden" value="@Model.Member.studentId" asp-for="Member.studentId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">First Name</label>
+                <input asp-for="Member.firstName" class="form-control" />
+                <span asp-validation-for="Member.firstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Last Name</label>
+                <input asp-for="Member.lasttName" class="form-control" />
+                <span asp-validation-for="Member.lasttName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.dateOfBirth" class="control-label">Date Of Birth </label>
+                <input asp-for="Member.dateOfBirth" type="date" class="form-control" />
+                <span asp-validation-for="Member.dateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.Nationality" class="control-label"></label>
+                <select asp-for="Member.Nationality" class="form-control form-control-lg" asp-items="ViewBag.Nationality"></select>
+
+                @* <select asp-for="Student.nationality" asp-items="Model.myEnumList"></select> *@
+                @* <select asp-for="Student.nationality" class="form-control"></select> *@
+                <span asp-validation-for="Member.Nationality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.Relatioship" class="control-label"></label>
+                <select asp-for="Member.Relatioship" class="form-control form-control-lg" asp-items="ViewBag.Relationship"></select>
+
+                @* <select asp-for="Student.nationality" asp-items="Model.myEnumList"></select> *@
+                @* <select asp-for="Student.nationality" class="form-control"></select> *@
+                <span asp-validation-for="Member.Relatioship" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./studentfamily" asp-route-id="@Model.Member.studentId">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

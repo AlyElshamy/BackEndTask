@@ -1,0 +1,44 @@
+﻿@page
+@model AdminStaff.Areas.Admin.Pages.Family.StudentFamilyModel
+@{
+}
+<a class="btn btn-primary " asp-page="./AddFamilyMember" asp-route-id="@Model.FamilyMembers.First().studentId">Add Family Member</a>
+
+    @if (Model.FamilyMembers.Count() != 0)
+    {
+    <table class="table table-hover">
+
+        <thead style="text-align:center">
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">RelationShip</th>
+            <th scope="col">Nationality</th>
+            <th scope="col">DateOfBirth</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var Member in Model.FamilyMembers)
+        {
+
+            <tr class="clickable text-center"
+                style="cursor:pointer" onclick="location.href='../family/Details?id=@Member.ID'">
+                <td>@Member.firstName</td>
+                <td>@Member.lasttName</td>
+                <td>@Member.student.firstName</td>
+                <td>@Member.relatioship</td>
+                <td>@Member.nationality</td>
+                <td>@Member.dateOfBirth.ToShortDateString()</td>
+                @* <a asp-page="./Details" asp-route-id="@Member.ID">Details</a> *@
+
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+        
+    }

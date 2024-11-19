@@ -1,0 +1,55 @@
+﻿@page
+@model AdminStaff.Areas.Admin.Pages.Family.DetailsModel
+
+@{
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>FamilyMember</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FamilyMember.Result.firstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FamilyMember.Result.firstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FamilyMember.Result.lasttName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FamilyMember.Result.lasttName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FamilyMember.Result.dateOfBirth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FamilyMember.Result.dateOfBirth)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FamilyMember.Result.student)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FamilyMember.Result.student.firstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FamilyMember.Result.relatioship)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FamilyMember.Result.relatioship)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FamilyMember.Result.nationality)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FamilyMember.Result.nationality)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.FamilyMember.Result.ID">Edit</a> |
+    <a asp-page="./Delete" asp-route-id="@Model.FamilyMember.Result.ID">Delete</a> |
+    <a asp-page="./studentfamily" asp-route-id="@Model.FamilyMember.Result.ID">Back to List</a>
+</div>

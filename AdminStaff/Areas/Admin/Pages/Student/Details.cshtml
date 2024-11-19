@@ -1,0 +1,45 @@
+﻿@page
+@model AdminStaff.Areas.Admin.Pages.Student.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.Result.firstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Result.firstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.Result.lasttName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Result.lasttName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.Result.dateOfBirth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Result.dateOfBirth)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.Result.nationality)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Result.nationality)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Student.Result.ID">Edit</a> |
+    <a asp-page="../Family/StudentFamily" asp-route-id="@Model.Student.Result.ID">Family</a> |
+    <a asp-page="./Delete" asp-route-id="@Model.Student.Result.ID">Delete</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,49 @@
+﻿@page
+@model AdminStaff.Areas.Admin.Pages.Student.IndexModel
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor _httpContextAccessor
+@{
+    var username = HttpContext.User.Identity.Name;
+    var cursor = 1;
+}
+<form method="post">
+    <input  asp-for="UserRole.username" type="hidden" value="@username" />
+    <input type="radio"  asp-for="UserRole.RoleName" value="Admin">
+    <label for="html">Admin</label><br>
+
+    <input type="radio" asp-for="UserRole.RoleName" value="Registrar">
+    <label for="html">Registrar</label><br>
+    @* <input type="radio" id="css" asp-for="@Model.UserRole.RoleName" value="Registerar"> *@
+    @* <label for="css">Registerar</label><br> *@
+    <button type="submit">change role</button>
+</form>
+<table class="table table-hover">
+    <a type="button" class="btn btn-primary" asp-page="./add">Add New Student</a>
+
+    <thead style="text-align:center">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Nationality</th>
+            <th scope="col">DateOfBirth</th>
+        </tr>
+    </thead>
+
+    
+    <tbody>
+       @foreach(var student in Model.Students)
+        {
+
+            <tr class="clickable text-center"
+               style="cursor:pointer" onclick="location.href='../admin/student/Details?id=@student.ID'">
+                <th scope="row">@cursor</th>
+                <td>@student.firstName</td>
+                <td>@student.lasttName</td>
+                <td>@student.nationality</td>
+                <td>@student.dateOfBirth.ToShortDateString()</td>
+
+            </tr>
+            cursor++;
+        }
+        
+    </tbody>
